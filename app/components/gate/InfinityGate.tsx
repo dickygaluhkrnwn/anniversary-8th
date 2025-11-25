@@ -85,6 +85,14 @@ export default function InfinityGate() {
       <div className="absolute top-[-20%] left-[-10%] w-[40vw] h-[40vw] bg-lilac-200 rounded-full blur-[120px] opacity-30 animate-blob" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[40vw] h-[40vw] bg-pink-100 rounded-full blur-[120px] opacity-30 animate-blob animation-delay-2000" />
 
+      {/* --- BINGKAI DEKORATIF (Baru) --- */}
+      <div className="absolute inset-4 md:inset-8 border border-lilac-200/50 rounded-[30px] pointer-events-none z-20">
+        {/* Sudut-sudut Emas */}
+        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gold-300 rounded-tl-[20px]" />
+        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gold-300 rounded-tr-[20px]" />
+        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gold-300 rounded-bl-[20px]" />
+        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gold-300 rounded-br-[20px]" />
+      </div>
 
       {/* --- MAIN CONTENT --- */}
       <div className="relative z-10 flex flex-col items-center w-full max-w-4xl px-6">
