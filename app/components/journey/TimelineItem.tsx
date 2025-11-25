@@ -26,7 +26,12 @@ export default function TimelineItem({ year, title, description, image, index }:
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-full md:w-5/12 mb-6 md:mb-0 relative group"
       >
-        <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-xl border-4 border-white transform transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1">
+        {/* UPDATE FILTER:
+            - grayscale: Hitam putih dasar
+            - contrast-125: Meningkatkan ketajaman perbedaan gelap/terang (biar mirip foto studio)
+            - brightness-110: Mencerahkan sedikit agar tidak terlalu gelap
+        */}
+        <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-xl border-4 border-white transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-1 grayscale contrast-125 brightness-110">
           <Image
             src={image}
             alt={title}
