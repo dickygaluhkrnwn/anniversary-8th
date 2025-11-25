@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* --- COLORS (Lilac & Gold Theme) --- */
+  --color-lilac-50: #fbf7fe;
+  --color-lilac-100: #f5ecfc;
+  --color-lilac-200: #eaddf7;
+  --color-lilac-300: #d8b4fe;
+  --color-lilac-400: #c084fc;
+  --color-lilac-500: #a855f7;
+  --color-lilac-600: #9333ea;
+  --color-lilac-700: #7e22ce;
+  --color-lilac-800: #6b21a8;
+  --color-lilac-900: #581c87;
+  --color-lilac-950: #3b0764;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-gold-100: #fff9c4;
+  --color-gold-300: #fff176;
+  --color-gold-500: #ffd700;
+  --color-gold-700: #fbc02d;
+  --color-gold-900: #f57f17;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* --- FONTS --- */
+  /* Mengambil variabel font yang sudah di-define di layout.tsx */
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+
+  /* --- ANIMATIONS --- */
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-blob: blob 7s infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
   }
 }
 
+/* --- BASE STYLES --- */
+:root {
+  --foreground-rgb: 88, 28, 135; /* lilac-900 */
+  --background-start-rgb: 251, 247, 254; /* lilac-50 */
+  --background-end-rgb: 245, 236, 252; /* lilac-100 */
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-lilac-900);
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--color-lilac-100)
+    )
+    var(--color-lilac-50);
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* --- UTILITIES --- */
+/* Di Tailwind v4, @apply bekerja setelah import utama */
+@layer components {
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-md border border-white/50 shadow-xl rounded-2xl;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
 }
