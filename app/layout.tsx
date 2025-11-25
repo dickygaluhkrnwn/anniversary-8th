@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"; // 1. Import Analytics
 import "./globals.css";
 import MusicPlayer from "./components/ui/MusicPlayer";
 
@@ -29,8 +30,12 @@ export default function RootLayout({
     <html lang="id">
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
-        {/* Music Player dipasang di sini agar persistent */}
+        
+        {/* Music Player Global */}
         <MusicPlayer />
+        
+        {/* 2. Pasang komponen Analytics di sini (biasanya paling bawah body) */}
+        <Analytics />
       </body>
     </html>
   );
